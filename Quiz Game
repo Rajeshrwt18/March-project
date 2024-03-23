@@ -1,0 +1,26 @@
+class Question:
+    def __init__(self, prompt, answer):
+        self.prompt = prompt
+        self.answer = answer
+
+# Define your list of questions
+questions = [
+    Question("What is the capital of France?\n(a) Paris\n(b) Rome\n(c) Madrid\n(d) Berlin\n", "a"),
+    Question("Which planet is known as the Red Planet?\n(a) Venus\n(b) Mars\n(c) Jupiter\n(d) Saturn\n", "b"),
+    Question("Who wrote 'Romeo and Juliet'?\n(a) William Shakespeare\n(b) Charles Dickens\n(c) Jane Austen\n(d) Mark Twain\n", "a"),
+    # Add more questions as needed
+]
+
+def run_quiz(questions):
+    score = 0
+    for question in questions:
+        answer = input(question.prompt).lower()
+        if answer == question.answer:
+            print("Correct!\n")
+            score += 1
+        else:
+            print("Incorrect. The correct answer was: {}\n".format(question.answer))
+    print("You got {}/{} correct answers.".format(score, len(questions)))
+
+if __name__ == "__main__":
+    run_quiz(questions)
